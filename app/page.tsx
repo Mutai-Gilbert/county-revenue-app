@@ -1,11 +1,12 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 
-export default function LandingPage() {
+export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <div className="relative h-48 w-full overflow-hidden rounded-b-3xl">
+      {/* Hero Section with Background and Logos */}
+      <div className="relative h-64 w-full overflow-hidden">
         <Image
           src="/placeholder.svg?height=400&width=800"
           alt="Kericho Landscape"
@@ -24,8 +25,8 @@ export default function LandingPage() {
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white">
-              <h1 className="text-2xl font-bold mb-1">KERICHO</h1>
-              <p className="text-sm">County Revenue System</p>
+              <h1 className="text-4xl font-bold mb-2">KERICHO</h1>
+              <p className="text-xl">County Revenue System</p>
             </div>
           </div>
           <div className="relative h-20 w-20">
@@ -39,48 +40,30 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <main className="flex-1 px-6 pt-8">
-        <div className="max-w-md mx-auto">
-          <h1 className="text-3xl font-bold mb-2 text-center text-gray-900">Welcome to Kericho County</h1>
-          <p className="text-gray-700 mb-8 text-center font-medium">Access the County Revenue System</p>
-
+      {/* Main Content */}
+      <main className="flex-1 px-6 py-12">
+        <div className="max-w-md mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-4">Welcome to Kericho County Revenue System</h2>
+          <p className="mb-8">Manage your county services, payments, and more.</p>
           <div className="space-y-4">
-            <Button 
-              asChild
-              className="w-full bg-blue-600 hover:bg-blue-700 text-lg font-semibold h-[52px]"
-            >
-              <Link href="/login">
-                LOGIN
-              </Link>
-            </Button>
-
-            <Button 
-              asChild
-              variant="outline"
-              className="w-full text-lg font-semibold h-[52px] bg-black text-blue-600 hover:bg-black/90 border-0"
-            >
-              <Link href="/signup">
-                SIGN UP
-              </Link>
-            </Button>
-          </div>
-
-          <div className="mt-12 text-center space-y-6">
-            <p className="text-gray-900 font-medium">IMEI NOT AVAILABLE</p>
-            <div className="space-y-2">
-              <p className="text-gray-900 font-medium">Version: 174</p>
-              <div className="relative h-16 w-16 mx-auto">
-                <Image
-                  src="/placeholder.svg?height=64&width=64"
-                  alt="County Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
+            <Link href="/login" passHref>
+              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg font-semibold py-6">
+                Login
+              </Button>
+            </Link>
+            <Link href="/signup" passHref>
+              <Button variant="outline" className="w-full text-lg font-semibold py-6">
+                Create Account
+              </Button>
+            </Link>
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-100 py-4 text-center">
+        <p className="text-sm text-gray-600">© 2023 Kericho County. All rights reserved.</p>
+      </footer>
     </div>
   )
 }

@@ -1,44 +1,32 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { User, Lock } from 'lucide-react'
-import { useRouter } from 'next/navigation'
 
 export default function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
   const router = useRouter()
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    setError('')
-
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      })
-
-      const data = await response.json()
-
-      if (data.success) {
-        router.push('/home')
-      } else {
-        setError('Invalid credentials')
-      }
-    } catch {
-      setError('An error occurred. Please try again.')
+    // This is a mock login. In a real app, you'd validate credentials against a backend.
+    if (username && password) {
+      // Store login state in localStorage
+      localStorage.setItem('isLoggedIn', 'true')
+      router.push('/dashboard')
     }
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <div className="relative h-48 w-full overflow-hidden rounded-b-3xl">
+    <div className="min-h-screen flex flex-col bg-white max-w-7xl mx-auto">
+      {/* Hero Section with Background and Logos */}
+      <div className="relative h-48 sm:h-64 md:h-80 w-full overflow-hidden rounded-b-3xl">
         <Image
           src="/placeholder.svg?height=400&width=800"
           alt="Kericho Landscape"
@@ -58,7 +46,7 @@ export default function LoginPage() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white">
               <h1 className="text-2xl font-bold mb-1">KERICHO</h1>
-              <p className="text-sm font-medium">County Revenue System</p>
+              <p className="text-sm">County Revenue System</p>
             </div>
           </div>
           <div className="relative h-20 w-20">
@@ -72,25 +60,25 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <main className="flex-1 px-6 pt-8">
-        <div className="max-w-md mx-auto">
-          <h1 className="text-2xl font-bold mb-2 text-gray-900">WELCOME</h1>
-          <p className="text-gray-700 mb-8 font-medium">Enter your correct credentials to continue.</p>
+      {/* Login Form */}
+      <main className="flex-1 px-4 sm:px-6 pt-8">
+        <div className="max-w-md mx-auto w-full">
+          <h1 className="text-2xl font-bold mb-2">WELCOME</h1>
+          <p className="text-gray-600 mb-8">Enter your correct credentials to continue.</p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-2">
-              <label htmlFor="username" className="block text-gray-900 font-medium">
+              <label className="block text-gray-700">
                 Enter your ID No./User name
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                  <User className="h-5 w-5 text-gray-500" />
+                  <User className="h-5 w-5 text-gray-400" />
                 </div>
                 <Input 
-                  id="username"
                   type="text"
                   placeholder="22673632"
-                  className="pl-10 h-12 text-gray-900 font-medium border-gray-300"
+                  className="w-full pl-10"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required
@@ -99,17 +87,16 @@ export default function LoginPage() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="password" className="block text-gray-900 font-medium">
+              <label className="block text-gray-700">
                 Password
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-500" />
+                  <Lock className="h-5 w-5 text-gray-400" />
                 </div>
                 <Input 
-                  id="password"
                   type="password"
-                  className="pl-10 h-12 text-gray-900 font-medium border-gray-300"
+                  className="w-full pl-10"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -117,9 +104,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {error && <p className="text-red-500 font-medium">{error}</p>}
-
-            <p className="text-gray-700 font-medium">
+            <p className="text-sm text-gray-600">
               By using our services, you agree to the collection and processing of your
               data for the purpose of enhancing user experience, in accordance with our
               privacy policy and applicable regulations.
@@ -127,16 +112,25 @@ export default function LoginPage() {
 
             <Button 
               type="submit" 
-              className="w-full bg-blue-600 hover:bg-blue-700 text-lg font-semibold h-[52px]"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-lg font-semibold py-4 sm:py-6"
             >
               LOGIN
             </Button>
           </form>
 
+          <div className="mt-6 text-center">
+            <p className="text-gray-600">
+              Don&apos;t have an account?{' '}
+              <Link href="/signup" className="text-blue-600 hover:text-blue-700 font-semibold">
+                Create one here
+              </Link>
+            </p>
+          </div>
+
           <div className="mt-8 text-center space-y-6">
-            <p className="text-gray-900 font-medium">IMEI NOT AVAILABLE</p>
+            <p className="text-gray-600">IMEI NOT AVAILABLE</p>
             <div className="space-y-2">
-              <p className="text-gray-900 font-medium">Version: 174</p>
+              <p className="text-gray-600">Version: 174</p>
               <div className="relative h-16 w-16 mx-auto">
                 <Image
                   src="/placeholder.svg?height=64&width=64"
@@ -152,3 +146,4 @@ export default function LoginPage() {
     </div>
   )
 }
+
