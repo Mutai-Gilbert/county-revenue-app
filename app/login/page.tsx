@@ -41,7 +41,7 @@ export default function LoginPage() {
           <div className="flex items-center justify-between px-8">
             <div className="relative h-24 w-24 bg-white rounded-lg p-2">
               <Image
-                src="/assets/county-logo.jpg"
+                src="/county-revenue-app/county-logo.jpg"
                 alt="County Logo"
                 fill
                 className="object-contain"
