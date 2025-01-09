@@ -48,7 +48,6 @@ export default function HomePage() {
         <main className="flex-1 flex items-center justify-center px-6">
           <div className="max-w-md w-full bg-white/95 backdrop-blur-sm rounded-2xl p-8">
             <div className="text-center">
-              <h2 className="text-2xl font-bold mb-4">Welcome to Kericho County Revenue System</h2>
               <p className="mb-8 text-gray-600">Manage your county services, payments, and more.</p>
               <div className="space-y-4">
                 <Link href="/login" className="block">
