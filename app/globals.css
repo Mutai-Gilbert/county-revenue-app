@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.expanded-content {
+  transition: all 0.3s ease-in-out;
+}
+
+.expanded-content.show {
+  display: block !important;
+}
+
