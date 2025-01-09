@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // output: 'export',
+  output: 'export',
+  basePath: '/county-revenue-app',
   images: {
-    unoptimized: true, // Disable Next.js image optimization for static exports
+    unoptimized: true,
   },
+  assetPrefix: '/county-revenue-app/',
 };
 
 export default nextConfig;
