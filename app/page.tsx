@@ -8,7 +8,7 @@ export default function HomePage() {
       {/* Full-screen background image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-                src="/county-revenue-app/kericho-landscape.jpg"
+                src="/county-revenue-app/kericho-landscape.jpeg"
                 alt="Kericho Landscape"
                 fill
                 className="object-contain"
@@ -34,7 +34,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-24 w-24 bg-white rounded-lg p-2">
               <Image
-                src="/assets/county-logo.jpg"
+                src="/county-revenue-app/county-logo.jpg"
                 alt="County Logo"
                 fill
                 className="object-contain"

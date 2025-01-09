@@ -38,7 +38,7 @@ export default function SignupPage() {
       {/* Full-screen background image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/assets/kericho-landscape.jpeg"
+          src="/county-revenue-app/kericho-landscape.jpeg"
           alt="Kericho Landscape"
           fill
           className="object-cover"
@@ -53,7 +53,7 @@ export default function SignupPage() {
           <div className="flex items-center justify-between px-8">
             <div className="relative h-24 w-24 bg-white rounded-lg p-2">
               <Image
-                src="/assets/county-logo.jpg"
+                src="/county-revenue-app/county-logo.jpg"
                 alt="County Logo"
                 fill
                 className="object-contain"
@@ -65,7 +65,7 @@ export default function SignupPage() {
             </div>
             <div className="relative h-24 w-24 bg-white rounded-lg p-2">
               <Image
-                src="/assets/county-logo.jpg"
+                src="/county-revenue-app/county-logo.jpg"
                 alt="County Logo"
                 fill
                 className="object-contain"
