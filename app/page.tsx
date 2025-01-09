@@ -8,10 +8,11 @@ export default function HomePage() {
       {/* Full-screen background image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-                src="/county-revenue-app/kericho-landscape.jpeg"
-                alt="Kericho Landscape"
-                fill
-                className="object-contain"
+          src="/county-revenue-app/kericho-landscape.jpeg"
+          alt="Kericho Landscape"
+          fill
+          className="object-cover"
+          priority
         />
       </div>
 

@@ -198,7 +198,7 @@ export default function SignupPage() {
                 <p className="text-gray-600">Version: 174</p>
                 <div className="relative h-16 w-16 mx-auto bg-white rounded-lg p-2">
                   <Image
-                    src="/assets/county-logo.jpg"
+                    src="/county-revenue-app/county-logo.jpg"
                     alt="County Logo"
                     fill
                     className="object-contain"
