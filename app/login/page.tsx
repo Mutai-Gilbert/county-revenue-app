@@ -26,7 +26,7 @@ export default function LoginPage() {
       {/* Full-screen background image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/assets/kericho-landscape.jpeg"
+          src="/county-revenue-app/kericho-landscape.jpeg"
           alt="Kericho Landscape"
           fill
           className="object-cover"
