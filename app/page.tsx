@@ -7,7 +7,12 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col relative">
       {/* Full-screen background image */}
       <div className="absolute inset-0 w-full h-full">
-        <Image src={`/county-revenue-app/assets/kericho-landscape.jpg`} alt="Kericho Landscape" />
+        <Image
+                src="/assets/kericho-landscape.jpg"
+                alt="Kericho Landscape"
+                fill
+                className="object-contain"
+        />
       </div>
 
       {/* Content overlay */}
